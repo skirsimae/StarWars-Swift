@@ -19,6 +19,8 @@
 		CDC3E0A52995098100D1FE30 /* FilmsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3E0A42995098100D1FE30 /* FilmsViewModel.swift */; };
 		CDC3E0A8299509AC00D1FE30 /* Films.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3E0A7299509AC00D1FE30 /* Films.swift */; };
 		CDC3E0AB299509D600D1FE30 /* TableViewConfiguratorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3E0AA299509D600D1FE30 /* TableViewConfiguratorType.swift */; };
+		CDC3E0B0299518F800D1FE30 /* FilmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3E0AE299518F800D1FE30 /* FilmTableViewCell.swift */; };
+		CDC3E0B1299518F800D1FE30 /* FilmTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDC3E0AF299518F800D1FE30 /* FilmTableViewCell.xib */; };
 		D07CDBA300E72FF746E32F24 /* Pods_StarWars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 794B271CD104FC720B761083 /* Pods_StarWars.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +41,8 @@
 		CDC3E0A42995098100D1FE30 /* FilmsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsViewModel.swift; sourceTree = "<group>"; };
 		CDC3E0A7299509AC00D1FE30 /* Films.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Films.swift; sourceTree = "<group>"; };
 		CDC3E0AA299509D600D1FE30 /* TableViewConfiguratorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewConfiguratorType.swift; sourceTree = "<group>"; };
+		CDC3E0AE299518F800D1FE30 /* FilmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmTableViewCell.swift; sourceTree = "<group>"; };
+		CDC3E0AF299518F800D1FE30 /* FilmTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilmTableViewCell.xib; sourceTree = "<group>"; };
 		EE9A401D51368A68BE6964DD /* Pods-StarWars.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWars.debug.xcconfig"; path = "Target Support Files/Pods-StarWars/Pods-StarWars.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,6 +96,7 @@
 		CDC3E084299506D500D1FE30 /* StarWars */ = {
 			isa = PBXGroup;
 			children = (
+				CDC3E0AC2995180A00D1FE30 /* Services */,
 				CDC3E0A9299509C300D1FE30 /* Protocols */,
 				CDC3E0A6299509A100D1FE30 /* Models */,
 				CDC3E09C299507C500D1FE30 /* Features */,
@@ -116,6 +121,7 @@
 		CDC3E09D299507D500D1FE30 /* Films */ = {
 			isa = PBXGroup;
 			children = (
+				CDC3E0AD2995187D00D1FE30 /* Views */,
 				CDC3E09E299507DC00D1FE30 /* Screens */,
 			);
 			path = Films;
@@ -155,6 +161,22 @@
 				CDC3E0AA299509D600D1FE30 /* TableViewConfiguratorType.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		CDC3E0AC2995180A00D1FE30 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CDC3E0AD2995187D00D1FE30 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CDC3E0AE299518F800D1FE30 /* FilmTableViewCell.swift */,
+				CDC3E0AF299518F800D1FE30 /* FilmTableViewCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDC3E095299506D700D1FE30 /* LaunchScreen.storyboard in Resources */,
+				CDC3E0B1299518F800D1FE30 /* FilmTableViewCell.xib in Resources */,
 				CDC3E092299506D700D1FE30 /* Assets.xcassets in Resources */,
 				CDC3E08D299506D500D1FE30 /* FilmsViewController.storyboard in Resources */,
 			);
@@ -273,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDC3E0A12995093900D1FE30 /* FilmsTableViewConfigurator.swift in Sources */,
+				CDC3E0B0299518F800D1FE30 /* FilmTableViewCell.swift in Sources */,
 				CDC3E0A8299509AC00D1FE30 /* Films.swift in Sources */,
 				CDC3E090299506D500D1FE30 /* StarWars.xcdatamodeld in Sources */,
 				CDC3E0AB299509D600D1FE30 /* TableViewConfiguratorType.swift in Sources */,

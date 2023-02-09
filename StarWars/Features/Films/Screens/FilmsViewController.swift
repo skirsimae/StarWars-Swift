@@ -25,6 +25,10 @@ class FilmsViewController: UIViewController {
 
     private func configureTableView() {
         tableViewConfigurator.configure(tableView: tableView)
+    }
+//
+//    private func applyViewModel() {
+//        bind(to: viewModel)
 //    }
 }
 

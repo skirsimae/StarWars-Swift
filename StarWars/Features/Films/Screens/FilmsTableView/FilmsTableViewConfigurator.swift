@@ -30,6 +30,7 @@ extension FilmsTableViewConfigurator {
 
 extension FilmsTableViewConfigurator: TableViewConfiguratorType {
     func configure(tableView: UITableView) {
+        tableView.register(FilmTableViewCell.nib, forCellReuseIdentifier: FilmTableViewCell.identifier)
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -46,8 +47,14 @@ extension FilmsTableViewConfigurator: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
         
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: FilmTableViewCell.identifier, for: indexPath) as? FilmTableViewCell else {
+            fatalError("xib does not exist")
+        }
+        
+        return cell
+    }
+    
 }
 
 extension FilmsTableViewConfigurator: UITableViewDelegate {
