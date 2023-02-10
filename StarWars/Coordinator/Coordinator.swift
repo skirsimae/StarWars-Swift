@@ -6,13 +6,26 @@
 //
 
 import UIKit
+//
+//protocol Coordinator: AnyObject {
+//    var childCoordinators: [Coordinator] { get set }
+//
+//    init(navigationController: UINavigationController)
+//    func start()
+//}
 
-protocol Coordinator: AnyObject {
-    var childCoordinators: [Coordinator] { get set }
+
+class Coordinator {
+    var childCoordinators: [Coordinator] = [Coordinator]()
+    var navigationController: UINavigationController?
     
-    init(navigationController: UINavigationController)
-    func start() 
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
+    
+    func start() {}
 }
+
 
 extension Coordinator {
     func addChildCoordinator(_ coordinator: Coordinator) {

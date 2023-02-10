@@ -6,30 +6,34 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
+
 
 protocol BackToFirstViewControllerDelegate: AnyObject {
     
     func navigateBackToFirstPage(newOrderCoordinator: CharactersCoordinator)
-    
 }
 
 class CharactersCoordinator: Coordinator {
     
-    var childCoordinators: [Coordinator] = []
+    var networkingService: StarWarsService = StarWarsService.shared
     
-    unowned let navigationController: UINavigationController
+    var currentController: CharactersViewController?
+    weak var tabBarController: TabBarController?
     
-    // We use this delegate to keep a reference to the parent coordinator
     weak var delegate: BackToFirstViewControllerDelegate?
     
-    required init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
+    override init(navigationController: UINavigationController) {
+        super.init(navigationController: navigationController)
+        
+        currentController = CharactersViewController(viewModel: CharactersViewModel(endpoint: .just(.characters), service: networkingService))
+        currentController?.coordinator = self
+        childCoordinators.append(self)
     }
     
-    func start() {
-//        let charactersViewController : CharactersViewController = CharactersViewController()
-//        charactersViewController.delegate = self
-//        self.navigationController.pushViewController(charactersViewController, animated: true)
+    override func start() {
+        navigationController?.pushViewController(currentController ?? UIViewController(), animated: true)
     }
 }
 

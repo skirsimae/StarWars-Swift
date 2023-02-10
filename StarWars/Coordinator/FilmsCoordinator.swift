@@ -11,36 +11,39 @@ import RxSwift
 
 class FilmsCoordinator: Coordinator {
     
-    var childCoordinators: [Coordinator] = []
-    
-    let navigationController: UINavigationController
+    var currentController: FilmsViewController?
+    weak var tabBarController: TabBarController?
     
     var networkingService: StarWarsService = StarWarsService.shared
     
-    required init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
+    override init(navigationController: UINavigationController) {
+        super.init(navigationController: navigationController)
+        
+        currentController = FilmsViewController(viewModel: FilmsViewModel(endpoint: .just(.films), service: networkingService))
+        currentController?.coordinator = self
+        childCoordinators.append(self)
     }
     
-    func start() {
-        let filmsViewController : FilmsViewController = FilmsViewController(viewModel: FilmsViewModel(endpoint: .just(.films), service: networkingService))
-        filmsViewController.delegate = self
-        self.navigationController.viewControllers = [filmsViewController]
+    override func start() {
+//        currentController.delegate = self
+//        self.navigationController.viewControllers = [filmsViewController]
+        navigationController?.pushViewController(currentController ?? UIViewController(), animated: true)
     }
 }
 
-extension FilmsCoordinator: FilmsViewControllerDelegate {
-    func navigateToNextPage() {
-        let charactersCoordinator = CharactersCoordinator(navigationController: navigationController)
-        charactersCoordinator.delegate = self
-        childCoordinators.append(charactersCoordinator)
-        charactersCoordinator.start()
-    }
-}
-
-extension FilmsCoordinator: BackToFirstViewControllerDelegate {
-    func navigateBackToFirstPage(newOrderCoordinator: CharactersCoordinator) {
-        navigationController.popToRootViewController(animated: true)
-        childCoordinators.removeLast()
-    }
-}
+//extension FilmsCoordinator: FilmsViewControllerDelegate {
+//    func navigateToNextPage() {
+//        let charactersCoordinator = CharactersCoordinator(navigationController: navigationController)
+//        charactersCoordinator.delegate = self
+//        childCoordinators.append(charactersCoordinator)
+//        charactersCoordinator.start()
+//    }
+//}
+//
+//extension FilmsCoordinator: BackToFirstViewControllerDelegate {
+//    func navigateBackToFirstPage(newOrderCoordinator: CharactersCoordinator) {
+//        navigationController.popToRootViewController(animated: true)
+//        childCoordinators.removeLast()
+//    }
+//}
 
