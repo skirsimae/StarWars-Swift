@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class FilmsCoordinator: Coordinator {
     
@@ -13,14 +15,14 @@ class FilmsCoordinator: Coordinator {
     
     let navigationController: UINavigationController
     
-    var networkingService: NetworkingService = StarWarsNetworkingService()
+    var networkingService: StarWarsService = StarWarsService.shared
     
     required init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
     func start() {
-        let filmsViewController : FilmsViewController = FilmsViewController(viewModel: FilmsViewModel(service: networkingService))
+        let filmsViewController : FilmsViewController = FilmsViewController(viewModel: FilmsViewModel(endpoint: .just(.films), service: networkingService))
         filmsViewController.delegate = self
         self.navigationController.viewControllers = [filmsViewController]
     }
