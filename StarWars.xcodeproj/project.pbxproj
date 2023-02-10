@@ -8,19 +8,31 @@
 
 /* Begin PBXBuildFile section */
 		CDC3E086299506D500D1FE30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3E085299506D500D1FE30 /* AppDelegate.swift */; };
-		CDC3E088299506D500D1FE30 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3E087299506D500D1FE30 /* SceneDelegate.swift */; };
 		CDC3E08A299506D500D1FE30 /* FilmsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3E089299506D500D1FE30 /* FilmsViewController.swift */; };
-		CDC3E08D299506D500D1FE30 /* FilmsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDC3E08B299506D500D1FE30 /* FilmsViewController.storyboard */; };
 		CDC3E090299506D500D1FE30 /* StarWars.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CDC3E08E299506D500D1FE30 /* StarWars.xcdatamodeld */; };
 		CDC3E092299506D700D1FE30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDC3E091299506D700D1FE30 /* Assets.xcassets */; };
 		CDC3E095299506D700D1FE30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDC3E093299506D700D1FE30 /* LaunchScreen.storyboard */; };
 		CDC3E0A12995093900D1FE30 /* FilmsTableViewConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3E0A02995093900D1FE30 /* FilmsTableViewConfigurator.swift */; };
 		CDC3E0A32995096200D1FE30 /* FilmsTableViewConfigurator+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3E0A22995096200D1FE30 /* FilmsTableViewConfigurator+Rx.swift */; };
 		CDC3E0A52995098100D1FE30 /* FilmsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3E0A42995098100D1FE30 /* FilmsViewModel.swift */; };
-		CDC3E0A8299509AC00D1FE30 /* Films.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3E0A7299509AC00D1FE30 /* Films.swift */; };
+		CDC3E0A8299509AC00D1FE30 /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3E0A7299509AC00D1FE30 /* Film.swift */; };
 		CDC3E0AB299509D600D1FE30 /* TableViewConfiguratorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3E0AA299509D600D1FE30 /* TableViewConfiguratorType.swift */; };
 		CDC3E0B0299518F800D1FE30 /* FilmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3E0AE299518F800D1FE30 /* FilmTableViewCell.swift */; };
 		CDC3E0B1299518F800D1FE30 /* FilmTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDC3E0AF299518F800D1FE30 /* FilmTableViewCell.xib */; };
+		CDC3E0B329951DDB00D1FE30 /* StarWarsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3E0B229951DDB00D1FE30 /* StarWarsService.swift */; };
+		CDC3E0B5299537B400D1FE30 /* ViewModelBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3E0B4299537B400D1FE30 /* ViewModelBindable.swift */; };
+		CDC3E0B7299537F600D1FE30 /* ReactiveConnectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3E0B6299537F600D1FE30 /* ReactiveConnectable.swift */; };
+		CDC3E0BA29953A5500D1FE30 /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3E0B929953A5500D1FE30 /* UIViewController+Rx.swift */; };
+		CDC3E0BC29953B8200D1FE30 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3E0BB29953B8200D1FE30 /* ViewModelType.swift */; };
+		CDC3E0C02995529400D1FE30 /* URLRequest+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3E0BF2995529400D1FE30 /* URLRequest+Extensions.swift */; };
+		CDC3E0C329958CB900D1FE30 /* StarWarsNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3E0C229958CB900D1FE30 /* StarWarsNetworkService.swift */; };
+		CDC3E0C629958DDB00D1FE30 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3E0C529958DDB00D1FE30 /* Resource.swift */; };
+		CDC3E0C929958E9B00D1FE30 /* APIAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3E0C829958E9B00D1FE30 /* APIAction.swift */; };
+		CDC3E0CB299591A400D1FE30 /* FilmCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3E0CA299591A400D1FE30 /* FilmCellViewModel.swift */; };
+		CDC3E0CF29959E3200D1FE30 /* FilmsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3E0CE29959E3200D1FE30 /* FilmsCoordinator.swift */; };
+		CDC3E0D129959E3900D1FE30 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3E0D029959E3900D1FE30 /* Coordinator.swift */; };
+		CDC3E0D32996379300D1FE30 /* CharactersCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3E0D22996379300D1FE30 /* CharactersCoordinator.swift */; };
+		CDC3E0D529963E8300D1FE30 /* FilmsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDC3E0D429963E8300D1FE30 /* FilmsViewController.xib */; };
 		D07CDBA300E72FF746E32F24 /* Pods_StarWars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 794B271CD104FC720B761083 /* Pods_StarWars.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,9 +41,7 @@
 		7D91F5A93519E08C74B0E08A /* Pods-StarWars.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWars.release.xcconfig"; path = "Target Support Files/Pods-StarWars/Pods-StarWars.release.xcconfig"; sourceTree = "<group>"; };
 		CDC3E082299506D500D1FE30 /* StarWars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarWars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDC3E085299506D500D1FE30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CDC3E087299506D500D1FE30 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CDC3E089299506D500D1FE30 /* FilmsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsViewController.swift; sourceTree = "<group>"; };
-		CDC3E08C299506D500D1FE30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/FilmsViewController.storyboard; sourceTree = "<group>"; };
 		CDC3E08F299506D500D1FE30 /* StarWars.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StarWars.xcdatamodel; sourceTree = "<group>"; };
 		CDC3E091299506D700D1FE30 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CDC3E094299506D700D1FE30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -39,10 +49,24 @@
 		CDC3E0A02995093900D1FE30 /* FilmsTableViewConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsTableViewConfigurator.swift; sourceTree = "<group>"; };
 		CDC3E0A22995096200D1FE30 /* FilmsTableViewConfigurator+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FilmsTableViewConfigurator+Rx.swift"; sourceTree = "<group>"; };
 		CDC3E0A42995098100D1FE30 /* FilmsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsViewModel.swift; sourceTree = "<group>"; };
-		CDC3E0A7299509AC00D1FE30 /* Films.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Films.swift; sourceTree = "<group>"; };
+		CDC3E0A7299509AC00D1FE30 /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
 		CDC3E0AA299509D600D1FE30 /* TableViewConfiguratorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewConfiguratorType.swift; sourceTree = "<group>"; };
 		CDC3E0AE299518F800D1FE30 /* FilmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmTableViewCell.swift; sourceTree = "<group>"; };
 		CDC3E0AF299518F800D1FE30 /* FilmTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilmTableViewCell.xib; sourceTree = "<group>"; };
+		CDC3E0B229951DDB00D1FE30 /* StarWarsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsService.swift; sourceTree = "<group>"; };
+		CDC3E0B4299537B400D1FE30 /* ViewModelBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelBindable.swift; sourceTree = "<group>"; };
+		CDC3E0B6299537F600D1FE30 /* ReactiveConnectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveConnectable.swift; sourceTree = "<group>"; };
+		CDC3E0B929953A5500D1FE30 /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
+		CDC3E0BB29953B8200D1FE30 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
+		CDC3E0BF2995529400D1FE30 /* URLRequest+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extensions.swift"; sourceTree = "<group>"; };
+		CDC3E0C229958CB900D1FE30 /* StarWarsNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsNetworkService.swift; sourceTree = "<group>"; };
+		CDC3E0C529958DDB00D1FE30 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		CDC3E0C829958E9B00D1FE30 /* APIAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIAction.swift; sourceTree = "<group>"; };
+		CDC3E0CA299591A400D1FE30 /* FilmCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmCellViewModel.swift; sourceTree = "<group>"; };
+		CDC3E0CE29959E3200D1FE30 /* FilmsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsCoordinator.swift; sourceTree = "<group>"; };
+		CDC3E0D029959E3900D1FE30 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		CDC3E0D22996379300D1FE30 /* CharactersCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersCoordinator.swift; sourceTree = "<group>"; };
+		CDC3E0D429963E8300D1FE30 /* FilmsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilmsViewController.xib; sourceTree = "<group>"; };
 		EE9A401D51368A68BE6964DD /* Pods-StarWars.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWars.debug.xcconfig"; path = "Target Support Files/Pods-StarWars/Pods-StarWars.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,12 +120,13 @@
 		CDC3E084299506D500D1FE30 /* StarWars */ = {
 			isa = PBXGroup;
 			children = (
-				CDC3E0AC2995180A00D1FE30 /* Services */,
+				CDC3E0CD29959E1F00D1FE30 /* Coordinator */,
+				CDC3E0B829953A4000D1FE30 /* Extensions */,
+				CDC3E0AC2995180A00D1FE30 /* Network */,
 				CDC3E0A9299509C300D1FE30 /* Protocols */,
 				CDC3E0A6299509A100D1FE30 /* Models */,
 				CDC3E09C299507C500D1FE30 /* Features */,
 				CDC3E085299506D500D1FE30 /* AppDelegate.swift */,
-				CDC3E087299506D500D1FE30 /* SceneDelegate.swift */,
 				CDC3E091299506D700D1FE30 /* Assets.xcassets */,
 				CDC3E093299506D700D1FE30 /* LaunchScreen.storyboard */,
 				CDC3E096299506D700D1FE30 /* Info.plist */,
@@ -130,7 +155,7 @@
 		CDC3E09E299507DC00D1FE30 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				CDC3E08B299506D500D1FE30 /* FilmsViewController.storyboard */,
+				CDC3E0D429963E8300D1FE30 /* FilmsViewController.xib */,
 				CDC3E089299506D500D1FE30 /* FilmsViewController.swift */,
 				CDC3E09F299507EC00D1FE30 /* FilmsTableView */,
 				CDC3E0A42995098100D1FE30 /* FilmsViewModel.swift */,
@@ -150,7 +175,7 @@
 		CDC3E0A6299509A100D1FE30 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CDC3E0A7299509AC00D1FE30 /* Films.swift */,
+				CDC3E0A7299509AC00D1FE30 /* Film.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -159,15 +184,22 @@
 			isa = PBXGroup;
 			children = (
 				CDC3E0AA299509D600D1FE30 /* TableViewConfiguratorType.swift */,
+				CDC3E0B4299537B400D1FE30 /* ViewModelBindable.swift */,
+				CDC3E0B6299537F600D1FE30 /* ReactiveConnectable.swift */,
+				CDC3E0BB29953B8200D1FE30 /* ViewModelType.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		CDC3E0AC2995180A00D1FE30 /* Services */ = {
+		CDC3E0AC2995180A00D1FE30 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				CDC3E0C729958E0D00D1FE30 /* Actions */,
+				CDC3E0C429958DC700D1FE30 /* Resource */,
+				CDC3E0C129958C9800D1FE30 /* Services */,
+				CDC3E0B229951DDB00D1FE30 /* StarWarsService.swift */,
 			);
-			path = Services;
+			path = Network;
 			sourceTree = "<group>";
 		};
 		CDC3E0AD2995187D00D1FE30 /* Views */ = {
@@ -175,8 +207,52 @@
 			children = (
 				CDC3E0AE299518F800D1FE30 /* FilmTableViewCell.swift */,
 				CDC3E0AF299518F800D1FE30 /* FilmTableViewCell.xib */,
+				CDC3E0CA299591A400D1FE30 /* FilmCellViewModel.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		CDC3E0B829953A4000D1FE30 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CDC3E0B929953A5500D1FE30 /* UIViewController+Rx.swift */,
+				CDC3E0BF2995529400D1FE30 /* URLRequest+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CDC3E0C129958C9800D1FE30 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CDC3E0C229958CB900D1FE30 /* StarWarsNetworkService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CDC3E0C429958DC700D1FE30 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				CDC3E0C529958DDB00D1FE30 /* Resource.swift */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		CDC3E0C729958E0D00D1FE30 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				CDC3E0C829958E9B00D1FE30 /* APIAction.swift */,
+			);
+			path = Actions;
+			sourceTree = "<group>";
+		};
+		CDC3E0CD29959E1F00D1FE30 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				CDC3E0D029959E3900D1FE30 /* Coordinator.swift */,
+				CDC3E0CE29959E3200D1FE30 /* FilmsCoordinator.swift */,
+				CDC3E0D22996379300D1FE30 /* CharactersCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,10 +315,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDC3E0D529963E8300D1FE30 /* FilmsViewController.xib in Resources */,
 				CDC3E095299506D700D1FE30 /* LaunchScreen.storyboard in Resources */,
 				CDC3E0B1299518F800D1FE30 /* FilmTableViewCell.xib in Resources */,
 				CDC3E092299506D700D1FE30 /* Assets.xcassets in Resources */,
-				CDC3E08D299506D500D1FE30 /* FilmsViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,30 +371,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDC3E0C329958CB900D1FE30 /* StarWarsNetworkService.swift in Sources */,
 				CDC3E0A12995093900D1FE30 /* FilmsTableViewConfigurator.swift in Sources */,
+				CDC3E0D32996379300D1FE30 /* CharactersCoordinator.swift in Sources */,
+				CDC3E0C929958E9B00D1FE30 /* APIAction.swift in Sources */,
 				CDC3E0B0299518F800D1FE30 /* FilmTableViewCell.swift in Sources */,
-				CDC3E0A8299509AC00D1FE30 /* Films.swift in Sources */,
+				CDC3E0A8299509AC00D1FE30 /* Film.swift in Sources */,
+				CDC3E0B5299537B400D1FE30 /* ViewModelBindable.swift in Sources */,
+				CDC3E0D129959E3900D1FE30 /* Coordinator.swift in Sources */,
+				CDC3E0CF29959E3200D1FE30 /* FilmsCoordinator.swift in Sources */,
 				CDC3E090299506D500D1FE30 /* StarWars.xcdatamodeld in Sources */,
+				CDC3E0B329951DDB00D1FE30 /* StarWarsService.swift in Sources */,
+				CDC3E0BA29953A5500D1FE30 /* UIViewController+Rx.swift in Sources */,
+				CDC3E0B7299537F600D1FE30 /* ReactiveConnectable.swift in Sources */,
+				CDC3E0CB299591A400D1FE30 /* FilmCellViewModel.swift in Sources */,
+				CDC3E0C629958DDB00D1FE30 /* Resource.swift in Sources */,
+				CDC3E0BC29953B8200D1FE30 /* ViewModelType.swift in Sources */,
 				CDC3E0AB299509D600D1FE30 /* TableViewConfiguratorType.swift in Sources */,
 				CDC3E08A299506D500D1FE30 /* FilmsViewController.swift in Sources */,
 				CDC3E086299506D500D1FE30 /* AppDelegate.swift in Sources */,
 				CDC3E0A52995098100D1FE30 /* FilmsViewModel.swift in Sources */,
+				CDC3E0C02995529400D1FE30 /* URLRequest+Extensions.swift in Sources */,
 				CDC3E0A32995096200D1FE30 /* FilmsTableViewConfigurator+Rx.swift in Sources */,
-				CDC3E088299506D500D1FE30 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CDC3E08B299506D500D1FE30 /* FilmsViewController.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CDC3E08C299506D500D1FE30 /* Base */,
-			);
-			name = FilmsViewController.storyboard;
-			sourceTree = "<group>";
-		};
 		CDC3E093299506D700D1FE30 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -457,7 +537,6 @@
 				INFOPLIST_FILE = StarWars/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = FilmsViewController;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -486,7 +565,6 @@
 				INFOPLIST_FILE = StarWars/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = FilmsViewController;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
