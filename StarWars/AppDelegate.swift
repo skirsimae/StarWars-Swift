@@ -18,11 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = UINavigationController()
         
-        filmsCoordinator = FilmsCoordinator(navigationController: window?.rootViewController as! UINavigationController)
+        let appNavigationController = UINavigationController()
+        let tabBarCoordinator = MainTabBarCoordinator(navigationController: appNavigationController )
         
-        filmsCoordinator?.start()
+        tabBarCoordinator.start()
+        window?.rootViewController = appNavigationController
         
         window?.makeKeyAndVisible()
         
