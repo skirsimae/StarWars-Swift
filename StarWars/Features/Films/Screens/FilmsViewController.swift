@@ -23,8 +23,6 @@ class FilmsViewController: UIViewController {
     let viewModel: FilmsViewModel
     let disposeBag = DisposeBag()
     
-    private lazy var tableViewConfigurator: FilmsTableViewConfigurator = FilmsTableViewConfigurator(viewModel: viewModel)
-    
     init(viewModel: FilmsViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
