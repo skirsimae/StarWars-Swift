@@ -7,15 +7,15 @@
 
 import Foundation
 
-struct Film: Codable {
+struct FilmsResponse: Codable {
     let count: Int
     let next, previous: Int
-    let results: [Result]
+    let results: [Film]
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.count = try container.decode(Int.self, forKey: .count)
-        self.results = try container.decode([Result].self, forKey: .results)
+        self.results = try container.decode([Film].self, forKey: .results)
         
         if let next = try container.decodeIfPresent(Int.self, forKey: .next) {
             self.next = next
@@ -31,7 +31,7 @@ struct Film: Codable {
     }
 }
 
-struct Result: Codable {
+struct Film: Codable {
     let title: String
     let episodeID: Int
     let openingCrawl, director, producer, releaseDate: String
@@ -39,7 +39,7 @@ struct Result: Codable {
     let species: [String]
     let created, edited: String
     let url: String
-
+    
     enum CodingKeys: String, CodingKey {
         case title
         case episodeID = "episode_id"
