@@ -15,26 +15,19 @@ protocol Networking {
 
 public enum Endpoint: String, CustomStringConvertible, CaseIterable {
     case films
+    case characters
     case people
     case species
     
     public var description: String {
         switch self {
         case .films: return "Films"
+        case .characters: return "Characters"
         case .people: return "People"
         case .species: return "Species"
         }
     }
-    
-    public init?(index: Int) {
-        switch index {
-        case 0: self = .films
-        case 1: self = .people
-        case 2: self = .species
-        default: return nil
-        }
-    }
-    
+
     public init?(description: String) {
         guard let first = Endpoint.allCases.first(where: { $0.description == description }) else {
             return nil
