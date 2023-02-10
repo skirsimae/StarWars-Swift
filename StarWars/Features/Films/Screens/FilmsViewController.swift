@@ -14,11 +14,13 @@ public protocol FilmsViewControllerDelegate: AnyObject {
 
 class FilmsViewController: UIViewController {
     
+    weak var coordinator: FilmsCoordinator?
+    
     @IBOutlet weak var tableView: UITableView!
     
     public weak var delegate: FilmsViewControllerDelegate?
     
-    let viewModel: FilmsViewModel!
+    let viewModel: FilmsViewModel
     let disposeBag = DisposeBag()
     
     private lazy var tableViewConfigurator: FilmsTableViewConfigurator = FilmsTableViewConfigurator(viewModel: viewModel)
@@ -36,6 +38,10 @@ class FilmsViewController: UIViewController {
         
         viewModel.films.drive(onNext: {[unowned self] _ in
             self.tableView.reloadData()
+        }).disposed(by: disposeBag)
+        
+        viewModel.error.drive(onNext: { error in
+            print("Error occurred: \(String(describing: error))")
         }).disposed(by: disposeBag)
         
         configureTableView()
@@ -70,9 +76,5 @@ extension FilmsViewController: UITableViewDataSource, UITableViewDelegate {
 
         return cell
     }
-//
-//    private func applyViewModel() {
-//        bind(to: viewModel)
-//    }
 }
 

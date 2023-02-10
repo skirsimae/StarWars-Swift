@@ -23,6 +23,7 @@ class FilmsViewModel {
     }
     
     private let _films = BehaviorRelay<[Film]>(value: [])
+    private let _error = BehaviorRelay<String?>(value: nil)
     
     var films: Driver<[Film]> {
         return _films.asDriver()
@@ -30,6 +31,10 @@ class FilmsViewModel {
     
     var numberOfFilms: Int {
         return _films.value.count
+    }
+    
+    var error: Driver<String?> {
+        return _error.asDriver()
     }
     
     func viewModelForFilm(at index: Int) -> FilmCellViewModel? {
@@ -41,15 +46,12 @@ class FilmsViewModel {
     
     private func fetchFilms(endpoint: Endpoint) {
         self._films.accept([])
-        self._isFetching.accept(true)
         self._error.accept(nil)
         
         service.fetchFilms(from: endpoint, params: nil, successHandler: {[weak self] (response) in
-            self?._isFetching.accept(false)
             self?._films.accept(response.results)
             
         }) { [weak self] (error) in
-            self?._isFetching.accept(false)
             self?._error.accept(error.localizedDescription)
         }
     }
