@@ -30,4 +30,9 @@ class FilmTableViewCell: UITableViewCell {
         filmLabel.text = nil
     }
     
+    func configureWith(_ viewModel: FilmCellViewModel) {
+        filmLabel.text = viewModel.title
+        layoutIfNeeded()
+    }
+    
 }
