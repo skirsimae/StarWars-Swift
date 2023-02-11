@@ -10,21 +10,12 @@ import CoreData
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
     var window: UIWindow?
-    
-    var filmsCoordinator : FilmsCoordinator?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        
-        let appNavigationController = UINavigationController()
-        let tabBarCoordinator = MainTabBarCoordinator(navigationController: appNavigationController )
-        
-        tabBarCoordinator.start()
-        window?.rootViewController = appNavigationController
-        
+        window?.rootViewController = MainTabBarController()
         window?.makeKeyAndVisible()
         
         return true

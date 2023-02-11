@@ -24,7 +24,6 @@
 		CDC3E0D32996379300D1FE30 /* CharactersCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3E0D22996379300D1FE30 /* CharactersCoordinator.swift */; };
 		CDC3E0D529963E8300D1FE30 /* FilmsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDC3E0D429963E8300D1FE30 /* FilmsViewController.xib */; };
 		CDC3E0DC29967DF300D1FE30 /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3E0DB29967DF300D1FE30 /* CharactersViewController.swift */; };
-		CDC3E0DE299682C700D1FE30 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3E0DD299682C700D1FE30 /* TabBarController.swift */; };
 		CDC3E0E0299682FF00D1FE30 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3E0DF299682FF00D1FE30 /* MainTabBarController.swift */; };
 		CDC3E0E229968C3F00D1FE30 /* CharactersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3E0E129968C3F00D1FE30 /* CharactersViewModel.swift */; };
 		D07CDBA300E72FF746E32F24 /* Pods_StarWars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 794B271CD104FC720B761083 /* Pods_StarWars.framework */; };
@@ -52,7 +51,6 @@
 		CDC3E0D22996379300D1FE30 /* CharactersCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersCoordinator.swift; sourceTree = "<group>"; };
 		CDC3E0D429963E8300D1FE30 /* FilmsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilmsViewController.xib; sourceTree = "<group>"; };
 		CDC3E0DB29967DF300D1FE30 /* CharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewController.swift; sourceTree = "<group>"; };
-		CDC3E0DD299682C700D1FE30 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		CDC3E0DF299682FF00D1FE30 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		CDC3E0E129968C3F00D1FE30 /* CharactersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewModel.swift; sourceTree = "<group>"; };
 		EE9A401D51368A68BE6964DD /* Pods-StarWars.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWars.debug.xcconfig"; path = "Target Support Files/Pods-StarWars/Pods-StarWars.debug.xcconfig"; sourceTree = "<group>"; };
@@ -190,7 +188,6 @@
 				CDC3E0D029959E3900D1FE30 /* Coordinator.swift */,
 				CDC3E0CE29959E3200D1FE30 /* FilmsCoordinator.swift */,
 				CDC3E0D22996379300D1FE30 /* CharactersCoordinator.swift */,
-				CDC3E0DD299682C700D1FE30 /* TabBarController.swift */,
 				CDC3E0DF299682FF00D1FE30 /* MainTabBarController.swift */,
 			);
 			path = Coordinator;
@@ -327,7 +324,6 @@
 				CDC3E0B0299518F800D1FE30 /* FilmTableViewCell.swift in Sources */,
 				CDC3E0A8299509AC00D1FE30 /* FilmsResponse.swift in Sources */,
 				CDC3E0D129959E3900D1FE30 /* Coordinator.swift in Sources */,
-				CDC3E0DE299682C700D1FE30 /* TabBarController.swift in Sources */,
 				CDC3E0CF29959E3200D1FE30 /* FilmsCoordinator.swift in Sources */,
 				CDC3E0E229968C3F00D1FE30 /* CharactersViewModel.swift in Sources */,
 				CDC3E090299506D500D1FE30 /* StarWars.xcdatamodeld in Sources */,
