@@ -13,28 +13,9 @@ protocol Networking {
 }
 
 
-public enum Endpoint: String, CustomStringConvertible, CaseIterable {
+public enum Endpoint: String, CaseIterable {
     case films
-    case characters
     case people
-    case species
-    
-    public var description: String {
-        switch self {
-        case .films: return "Films"
-        case .characters: return "Characters"
-        case .people: return "People"
-        case .species: return "Species"
-        }
-    }
-
-    public init?(description: String) {
-        guard let first = Endpoint.allCases.first(where: { $0.description == description }) else {
-            return nil
-        }
-        self = first
-    }
-    
 }
 
 public enum MovieError: Error {
