@@ -8,7 +8,7 @@
 import RxSwift
 import RxCocoa
 
-class FilmsViewModel {
+class FilmsListViewModel {
     
     private let service: Networking
     private let disposeBag = DisposeBag()
@@ -22,8 +22,8 @@ class FilmsViewModel {
             }).disposed(by: disposeBag)
     }
     
-    private let _films = BehaviorRelay<[Film]>(value: [])
-    private let _error = BehaviorRelay<String?>(value: nil)
+    let _films = BehaviorRelay<[Film]>(value: [])
+    let _error = BehaviorRelay<String?>(value: nil)
     
     var films: Driver<[Film]> {
         return _films.asDriver()

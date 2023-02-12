@@ -12,12 +12,12 @@ import RxSwift
 class FilmsCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
-    var currentViewController: FilmsViewController?
+    var currentViewController: FilmsListViewController?
     var networkingService: StarWarsService = StarWarsService.shared
     
     init(navigationController: UINavigationController = UINavigationController()) {
         self.navigationController = navigationController
-        currentViewController = FilmsViewController(viewModel: FilmsViewModel(endpoint: .just(.films), service: networkingService))
+        currentViewController = FilmsListViewController(viewModel: FilmsListViewModel(endpoint: .just(.films), service: networkingService))
     }
     
     func start() {
@@ -29,7 +29,14 @@ class FilmsCoordinator: Coordinator {
     }
     
     func showFilm(film: Film) {
-//        let viewController = filmViewController
-//        startStudying(using: viewController)
+        let viewController = filmViewController(film: film)
+        navigationController.pushViewController(viewController, animated: true)
+    }
+    
+    func filmViewController(film: Film) -> FilmViewController {
+        let filmViewController = FilmViewController(viewModel: FilmViewModel(film: film))
+        filmViewController.coordinator = self
+
+        return filmViewController
     }
 }
