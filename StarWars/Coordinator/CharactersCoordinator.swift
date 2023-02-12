@@ -24,7 +24,7 @@ class CharactersCoordinator: Coordinator {
     weak var delegate: BackToFirstViewControllerDelegate?
     
     init() {
-        currentController = CharactersViewController(viewModel: CharactersViewModel(endpoint: .just(.characters), service: networkingService))
+        currentController = CharactersViewController(viewModel: CharactersViewModel(endpoint: .just(.people), service: networkingService))
     }
     
     func start() {

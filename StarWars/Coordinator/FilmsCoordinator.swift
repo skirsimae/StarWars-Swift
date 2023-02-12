@@ -29,14 +29,14 @@ class FilmsCoordinator: Coordinator {
     }
     
     func showFilm(film: Film) {
-        let viewController = filmViewController(film: film)
+        let viewController = filmTableViewController(film: film)
         navigationController.pushViewController(viewController, animated: true)
     }
     
-    func filmViewController(film: Film) -> FilmViewController {
-        let filmViewController = FilmViewController(viewModel: FilmViewModel(film: film))
-        filmViewController.coordinator = self
+    func filmTableViewController(film: Film) -> FilmDetailsTableViewController{
+        let filmDetailsTableViewController = FilmDetailsTableViewController(viewModel: FilmViewModel(film: film, endpoint: .just(.people), service: networkingService))
+        filmDetailsTableViewController.coordinator = self
 
-        return filmViewController
+        return filmDetailsTableViewController
     }
 }

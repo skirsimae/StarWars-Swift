@@ -82,29 +82,3 @@ class FilmsListViewController: UIViewController {
         coordinator?.showFilm(film: film)
     }
 }
-//
-//extension FilmsViewController: UITableViewDataSource, UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return viewModel.numberOfFilms
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: FilmTableViewCell.identifier, for: indexPath) as? FilmTableViewCell else {
-//            fatalError("xib does not exist")
-//        }
-//
-//        if let viewModel = viewModel.viewModelForFilm(at: indexPath.row) {
-//            cell.configureWith(viewModel)
-//        }
-//
-//        return cell
-//    }
-//
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let selectedFilm = Film[indexPath.row]
-//        delegate?.showFilm(film: selectedFilm)
-//
-//        print("selected the cell")
-//    }
-//}
-

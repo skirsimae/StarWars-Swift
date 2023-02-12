@@ -7,11 +7,7 @@
 
 import Foundation
 
-protocol FilmCellViewModelType {
-    var title: String { get }
-}
-
-struct FilmCellViewModel: FilmCellViewModelType {
+class FilmCellViewModel {
     private var film: Film
     
     init(film: Film) {
