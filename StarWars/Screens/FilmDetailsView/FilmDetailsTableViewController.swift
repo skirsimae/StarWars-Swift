@@ -1,20 +1,18 @@
 //
-//  FilmViewController.swift
+//  FilmDetailsTableViewController.swift
 //  StarWars
 //
 //  Created by Silva Kirsimae on 11/02/2023.
 //
 
-import RxSwift
-import RxCocoa
+import UIKit
 
 class FilmDetailsTableViewController: UITableViewController {
+    
     weak var coordinator: FilmsCoordinator?
+    let viewModel: FilmDetailsTableViewViewModel
     
-    let viewModel: FilmViewModel
-    let disposeBag = DisposeBag()
-    
-    init(viewModel: FilmViewModel) {
+    init(viewModel: FilmDetailsTableViewViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }

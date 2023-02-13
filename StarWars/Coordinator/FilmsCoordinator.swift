@@ -5,12 +5,10 @@
 //  Created by Silva Kirsimae on 09/02/2023.
 //
 
-import UIKit
 import RxCocoa
 import RxSwift
 
 class FilmsCoordinator: Coordinator {
-    var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
     var currentViewController: FilmsListViewController?
     var networkingService: StarWarsService = StarWarsService.shared
@@ -34,9 +32,9 @@ class FilmsCoordinator: Coordinator {
     }
     
     func filmTableViewController(film: Film) -> FilmDetailsTableViewController{
-        let filmDetailsTableViewController = FilmDetailsTableViewController(viewModel: FilmViewModel(film: film, endpoint: .just(.people), service: networkingService))
+        let filmDetailsTableViewController = FilmDetailsTableViewController(viewModel: FilmDetailsTableViewViewModel(film: film, endpoint: .just(.people), service: networkingService))
         filmDetailsTableViewController.coordinator = self
-
+        
         return filmDetailsTableViewController
     }
 }

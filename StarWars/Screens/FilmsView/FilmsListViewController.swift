@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  FilmsListViewController.swift
 //  StarWars
 //
 //  Created by Silva Kirsimae on 09/02/2023.
@@ -10,10 +10,9 @@ import RxCocoa
 
 class FilmsListViewController: UIViewController {
     
-    weak var coordinator: FilmsCoordinator?
-    
     @IBOutlet weak var tableView: UITableView!
     
+    weak var coordinator: FilmsCoordinator?
     let viewModel: FilmsListViewModel
     let disposeBag = DisposeBag()
     
@@ -21,6 +20,7 @@ class FilmsListViewController: UIViewController {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -34,19 +34,18 @@ class FilmsListViewController: UIViewController {
         configureTableView()
         handleTableViewCellSelection()
     }
-
     
     private func configureTableViewCell() {
         viewModel.films.drive(onNext: { [unowned self] _ in
             self.tableView.reloadData()
         }).disposed(by: disposeBag)
         
-        
+        //TODO: show error
         viewModel.error.drive(onNext: { error in
             print("Error occurred: \(String(describing: error))")
         }).disposed(by: disposeBag)
         
-
+        
         viewModel._films.asObservable().bind(to: tableView
             .rx
             .items(cellIdentifier: FilmTableViewCell.identifier, cellType: FilmTableViewCell.self)) {
@@ -54,8 +53,8 @@ class FilmsListViewController: UIViewController {
                 if let viewModel = self.viewModel.viewModelForFilm(at: row) {
                     cell.configureWith(viewModel)
                 }
-        }
-        .disposed(by: disposeBag)
+            }
+            .disposed(by: disposeBag)
     }
     
     func handleTableViewCellSelection() {
@@ -63,7 +62,6 @@ class FilmsListViewController: UIViewController {
             .modelSelected(Film.self)
             .asDriver()
             .drive(onNext: { [unowned self] film in
-                print("selected \(film)")
                 self.coordinator?.showFilm(film: film)
             })
             .disposed(by: disposeBag)
@@ -72,7 +70,7 @@ class FilmsListViewController: UIViewController {
     private func configureTableView() {
         tableView.tableFooterView = UIView()
         tableView.rowHeight = UITableView.automaticDimension
-
+        
         tableView.register(FilmTableViewCell.nib, forCellReuseIdentifier: FilmTableViewCell.identifier)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 100

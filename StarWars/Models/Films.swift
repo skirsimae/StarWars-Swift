@@ -1,5 +1,5 @@
 //
-//  Films.swift
+//  Film.swift
 //  StarWars
 //
 //  Created by Silva Kirsimae on 09/02/2023.
@@ -23,7 +23,7 @@ struct FilmsResponse: Codable {
             self.next = 0
         }
         
-        if let previous = try container.decodeIfPresent(Int.self, forKey: .next) {
+        if let previous = try container.decodeIfPresent(Int.self, forKey: .previous) {
             self.previous = previous
         } else {
             self.previous = 0

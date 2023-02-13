@@ -8,14 +8,14 @@
 import RxSwift
 
 protocol Networking {
-    
-    func fetchFilms(from endpoint: Endpoint, params: [String: String]?, successHandler: @escaping (_ response: FilmsResponse) -> Void, errorHandler: @escaping(_ error: Error) -> Void)
+    func fetchData<T: Decodable>(from endpoint: Endpoint, resultHandler: @escaping (Result<T, Error>) -> Void)
 }
 
 
 public enum Endpoint: String, CaseIterable {
     case films
     case people
+    case species
 }
 
 public enum MovieError: Error {
@@ -25,4 +25,3 @@ public enum MovieError: Error {
     case noData
     case serializationError
 }
-

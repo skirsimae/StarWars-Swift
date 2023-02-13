@@ -1,5 +1,5 @@
 //
-//  FilmsViewModel.swift
+//  FilmsListViewModel.swift
 //  StarWars
 //
 //  Created by Silva Kirsimae on 09/02/2023.
@@ -37,22 +37,24 @@ class FilmsListViewModel {
         return _error.asDriver()
     }
     
-    func viewModelForFilm(at index: Int) -> FilmCellViewModel? {
+    func viewModelForFilm(at index: Int) -> FilmTableViewCellViewModel? {
         guard index < _films.value.count else {
             return nil
         }
-        return FilmCellViewModel(film: _films.value[index])
+        return FilmTableViewCellViewModel(film: _films.value[index])
     }
     
     private func fetchFilms(endpoint: Endpoint) {
         self._films.accept([])
         self._error.accept(nil)
         
-        service.fetchFilms(from: endpoint, params: nil, successHandler: {[weak self] (response) in
-            self?._films.accept(response.results)
-            
-        }) { [weak self] (error) in
-            self?._error.accept(error.localizedDescription)
+        service.fetchData(from: endpoint) { (result : Result<FilmsResponse,Error>) in
+            switch result {
+            case .success(let films):
+                self._films.accept(films.results)
+            case .failure(let error):
+                self._error.accept(error.localizedDescription)
+            }
         }
     }
 }

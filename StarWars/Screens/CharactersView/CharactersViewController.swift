@@ -72,7 +72,6 @@ class CharactersViewController: UIViewController {
             .disposed(by: disposeBag)
         
         viewModel._selectedCharacterType.asObservable().subscribe { [unowned self] character in
-            print(character)
             self.viewModel.fetchCharacter()
         }.disposed(by: disposeBag)
     }

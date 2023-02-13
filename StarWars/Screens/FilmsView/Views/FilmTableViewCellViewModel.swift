@@ -1,5 +1,5 @@
 //
-//  FilmCellViewModel.swift
+//  FilmTableViewCellViewModel.swift
 //  StarWars
 //
 //  Created by Silva Kirsimae on 09/02/2023.
@@ -7,7 +7,8 @@
 
 import Foundation
 
-class FilmCellViewModel {
+class FilmTableViewCellViewModel {
+    
     private var film: Film
     
     init(film: Film) {

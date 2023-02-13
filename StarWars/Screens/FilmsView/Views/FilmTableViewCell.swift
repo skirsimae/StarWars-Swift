@@ -1,5 +1,5 @@
 //
-//  FilmsTableViewCell.swift
+//  FilmTableViewCell.swift
 //  StarWars
 //
 //  Created by Silva Kirsimae on 09/02/2023.
@@ -8,7 +8,7 @@
 import UIKit
 
 class FilmTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var filmLabel: UILabel!
     
     class var identifier: String { return String(describing: self) }
@@ -17,12 +17,6 @@ class FilmTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -30,7 +24,7 @@ class FilmTableViewCell: UITableViewCell {
         filmLabel.text = nil
     }
     
-    func configureWith(_ viewModel: FilmCellViewModel) {
+    func configureWith(_ viewModel: FilmTableViewCellViewModel) {
         filmLabel.text = viewModel.title
         layoutIfNeeded()
     }

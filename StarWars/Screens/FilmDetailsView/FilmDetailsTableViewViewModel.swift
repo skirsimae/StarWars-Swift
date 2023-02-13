@@ -1,5 +1,5 @@
 //
-//  FilmViewModel.swift
+//  FilmDetailsTableViewViewModel.swift
 //  StarWars
 //
 //  Created by Silva Kirsimae on 11/02/2023.
@@ -8,7 +8,7 @@
 import RxSwift
 import RxCocoa
 
-class FilmViewModel {
+class FilmDetailsTableViewViewModel {
     
     private var film: Film
     private let service: Networking
