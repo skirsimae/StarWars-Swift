@@ -37,6 +37,10 @@ class FilmsListViewModel {
         return _error.asDriver()
     }
     
+    var hasError: Bool {
+        return _error.value != nil
+    }
+    
     func viewModelForFilm(at index: Int) -> FilmTableViewCellViewModel? {
         guard index < _films.value.count else {
             return nil

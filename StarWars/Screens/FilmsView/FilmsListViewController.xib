@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FilmsViewController" customModule="StarWars" customModuleProvider="target">
             <connections>
+                <outlet property="errorLabel" destination="lWm-Ea-ptR" id="zCm-M4-cTX"/>
                 <outlet property="tableView" destination="Kaa-pN-ZZx" id="RMF-gB-0NL"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Rad-vw-cH4"/>
             </connections>
@@ -23,12 +24,22 @@
                     <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWm-Ea-ptR" userLabel="ErrorLabel">
+                    <rect key="frame" x="32" y="416" width="329" height="20.333333333333314"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="Kaa-pN-ZZx" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="2kh-nH-a6i"/>
+                <constraint firstItem="lWm-Ea-ptR" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="49a-RA-3SQ"/>
+                <constraint firstItem="lWm-Ea-ptR" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="32" id="JpU-a1-Nkj"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Kaa-pN-ZZx" secondAttribute="bottom" id="Rlz-GL-5bj"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="lWm-Ea-ptR" secondAttribute="trailing" constant="32" id="f3d-85-yK7"/>
+                <constraint firstItem="lWm-Ea-ptR" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="in0-vO-Xy3"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Kaa-pN-ZZx" secondAttribute="trailing" id="oz1-bg-GJO"/>
                 <constraint firstItem="Kaa-pN-ZZx" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="wFo-NH-S1z"/>
                 <constraint firstItem="Kaa-pN-ZZx" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="wHX-KR-U6S"/>

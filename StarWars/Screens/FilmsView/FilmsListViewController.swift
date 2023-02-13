@@ -11,6 +11,7 @@ import RxCocoa
 class FilmsListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var errorLabel: UILabel!
     
     weak var coordinator: FilmsCoordinator?
     let viewModel: FilmsListViewModel
@@ -33,6 +34,7 @@ class FilmsListViewController: UIViewController {
         configureTableViewCell()
         configureTableView()
         handleTableViewCellSelection()
+        handleShowingError()
     }
     
     private func configureTableViewCell() {
@@ -57,7 +59,7 @@ class FilmsListViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    func handleTableViewCellSelection() {
+    private func handleTableViewCellSelection() {
         tableView.rx
             .modelSelected(Film.self)
             .asDriver()
@@ -65,6 +67,14 @@ class FilmsListViewController: UIViewController {
                 self.coordinator?.showFilm(film: film)
             })
             .disposed(by: disposeBag)
+    }
+    
+    private func handleShowingError() {
+        viewModel.error.drive(onNext: {[unowned self] (error) in
+            self.errorLabel.isHidden = !self.viewModel.hasError
+            self.errorLabel.text = error
+        })
+        .disposed(by: disposeBag)
     }
     
     private func configureTableView() {
