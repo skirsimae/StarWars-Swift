@@ -5,24 +5,36 @@
 //  Created by Silva Kirsimae on 12/02/2023.
 //
 
-import Foundation
+import RxCocoa
+import RxDataSources
 
-class CharactersTableViewCellViewModel {
+typealias CharacterModel = AnimatableSectionModel<String, Character>
 
-    private var character: Character
-    
-    init(character: Character) {
-        self.character = character
-    }
-    
-}
-
-enum Character {
+enum Character: IdentifiableType, Equatable {
     case person(Person)
     case species(Species)
+    
+    var identity: String {
+        switch self {
+        case let .person(value):
+            return value.identity
+        case let .species(value):
+            return value.identity
+        }
+    }
+    
+    var cellIdentifier: String {
+        switch self {
+        case .person:
+            return "person"
+        case .species:
+            return "species"
+        }
+    }
 }
 
+
 enum CharacterType: String {
-    case person = "person"
+    case people = "people"
     case species = "species"
 }

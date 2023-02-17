@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Differentiator
 
 struct PeopleResponse: Codable {
     let count: Int
@@ -75,5 +76,13 @@ struct Person: Codable {
         } else {
             self.species = [""]
         }
+    }
+}
+
+extension Person: IdentifiableType, Equatable {
+    typealias Identity = String
+    
+    var identity: String {
+        return name
     }
 }

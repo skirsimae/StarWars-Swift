@@ -7,6 +7,7 @@
 
 import RxSwift
 import RxCocoa
+import RxDataSources
 
 class CharactersViewController: UIViewController {
     
@@ -30,41 +31,38 @@ class CharactersViewController: UIViewController {
         
         title = "Characters"
         
-        configureTableViewCell()
         configureTableView()
+        bindDataSource()
+        handleSegmentedControlSelection()
+        handleError()
     }
     
+    private func bindDataSource() {
+        let dataSource = RxTableViewSectionedAnimatedDataSource<CharacterModel> (
+            configureCell: { dataSource, tableView, indexPath, item in
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: CharactersTableViewCell.identifier, for: indexPath) as? CharactersTableViewCell else { fatalError() }
+                cell.configureWith(item)
+                return cell
+            })
+        
+        viewModel.characters
+            .asObservable()
+            .bind(to: tableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+    }
     
-    private func configureTableViewCell() {
+    private func handleSegmentedControlSelection() {
         viewModel.selectedCharacterType.asObservable().subscribe(onNext: { [unowned self] _ in
             self.tableView.reloadData()
         })
         .disposed(by: disposeBag)
-        
-        //TODO: show error
-        viewModel.error.drive(onNext: { error in
-            print("Error occurred: \(String(describing: error))")
-        }).disposed(by: disposeBag)
-        
-        viewModel.people.asObservable().bind(to: tableView.rx.items) { (tableView, row, people) -> UITableViewCell in
-            let cell = tableView
-                .dequeueReusableCell(withIdentifier: CharactersTableViewCell.identifier,
-                                     for: IndexPath(row: row, section: 0)) as! CharactersTableViewCell
-            cell.configureWith(.person(people))
-            
-            return cell
-        }
-        .disposed(by: disposeBag)
-        
-        //TODO: manage reusing the tableView cell for species
-        //  viewModel.people.asObservable().bind(to: tableView.rx.items) { (tableView, row, species) -> }
-        
+
         charactersSegmentedControl.rx
             .controlEvent(.valueChanged)
             .asObservable()
             .subscribe{ [self] _ in
                 switch charactersSegmentedControl.selectedSegmentIndex {
-                case 0: viewModel._selectedCharacterType.accept(.person)
+                case 0: viewModel._selectedCharacterType.accept(.people)
                 case 1:  viewModel._selectedCharacterType.accept(.species)
                 default: break
                 }
@@ -72,7 +70,7 @@ class CharactersViewController: UIViewController {
             .disposed(by: disposeBag)
         
         viewModel._selectedCharacterType.asObservable().subscribe { [unowned self] character in
-            self.viewModel.fetchCharacter()
+            self.viewModel.fetchCharacters()
         }.disposed(by: disposeBag)
     }
     
@@ -83,5 +81,12 @@ class CharactersViewController: UIViewController {
         tableView.register(CharactersTableViewCell.nib, forCellReuseIdentifier: CharactersTableViewCell.identifier)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 100
+    }
+    
+    private func handleError() {
+        //TODO: show error
+        viewModel.error.drive(onNext: { error in
+            print("Error occurred: \(String(describing: error))")
+        }).disposed(by: disposeBag)
     }
 }

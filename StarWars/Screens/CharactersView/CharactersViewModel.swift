@@ -7,8 +7,9 @@
 
 import RxSwift
 import RxCocoa
+import RxDataSources
 
-class CharactersViewModel {
+struct CharactersViewModel {
     
     private let service: Networking
     private let disposeBag = DisposeBag()
@@ -17,17 +18,12 @@ class CharactersViewModel {
         self.service = service
     }
     
-    let _people = BehaviorRelay<[Person]>(value: [])
-    let _species = BehaviorRelay<[Species]>(value: [])
-    let _selectedCharacterType = BehaviorRelay<CharacterType>(value: .person)
+    let _characters = BehaviorRelay<[CharacterModel]>(value: [])
+    let _selectedCharacterType = BehaviorRelay<CharacterType>(value: .people)
     let _error = BehaviorRelay<String?>(value: nil)
     
-    var people: Driver<[Person]> {
-        return _people.asDriver()
-    }
-    
-    var species: Driver<[Species]> {
-        return _species.asDriver()
+    var characters: Driver<[CharacterModel]> {
+        return _characters.asDriver()
     }
     
     var selectedCharacterType: Driver<CharacterType> {
@@ -38,45 +34,31 @@ class CharactersViewModel {
         return _error.asDriver()
     }
     
-    func viewModelForCharacters(selected control: Int, at index: Int) -> CharactersTableViewCellViewModel? {
-        if control == 0 {
-            guard index < _people.value.count else {
-                return nil
-            }
-            return CharactersTableViewCellViewModel(character: .person(_people.value[index]))
-        } else {
-            guard index < _species.value.count else {
-                return nil
-            }
-            return CharactersTableViewCellViewModel(character: .species(_species.value[index]))
-        }
-    }
-    
-    func fetchCharacter() {
+    func fetchCharacters() {
         switch _selectedCharacterType.value {
-        case .person:
-            self._people.accept([])
+        case .people:
             service.fetchData(from: .people) { (result : (Result<PeopleResponse, Error>)) in
                 switch result {
                 case .success(let people):
-                    self._people.accept(people.results)
+                    self._characters.accept([CharacterModel(model: "", items: people.results.map({ person in
+                        return Character.person(person)
+                    }))])
                     
                 case .failure(let error):
                     self._error.accept(error.localizedDescription)
                 }
             }
-            
         case .species:
-            self._species.accept([])
             service.fetchData(from: .species) { (result : (Result<SpeciesResponse, Error>)) in
                 switch result {
                 case .success(let species):
-                    self._species.accept(species.results)
+                    self._characters.accept([CharacterModel(model: "", items: species.results.map({ species in
+                        return Character.species(species)
+                    }))])
                 case .failure(let error):
                     self._error.accept(error.localizedDescription)
                 }
             }
         }
-        self._error.accept(nil)
     }
 }

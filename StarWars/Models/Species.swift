@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Differentiator
 
 struct SpeciesResponse: Codable {
     let count: Int
@@ -74,5 +75,13 @@ struct Species: Codable {
         } else {
             self.homeworld = ""
         }
+    }
+}
+
+extension Species: IdentifiableType, Equatable {
+    typealias Identity = String
+    
+    var identity: String {
+        return name
     }
 }

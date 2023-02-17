@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 
 class CharactersTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var birthYearLabel: UILabel!
     @IBOutlet weak var heightLabel: UILabel!
@@ -24,26 +24,29 @@ class CharactersTableViewCell: UITableViewCell {
     }
     
     override func prepareForReuse() {
-       super.prepareForReuse()
+        super.prepareForReuse()
         disposeBag = DisposeBag()
     }
     
     //Todo: unsubscribe to the cell for reuse purpose
     func configureWith(_ character: Character) {
-            switch character {
-            case .species(let species):
-                nameLabel.text = "Name: \(species.name)"
-                birthYearLabel.text = "Classification: \(species.classification)"
-                heightLabel.text = "Height: \(species.averageHeight)"
-                genderLabel.text = "Average Lifespan: \(species.averageLifespan)"
-                
-            case .person(let people):
-                nameLabel.text = "Name: \(people.name)"
-                birthYearLabel.text = "Birth year: \(people.birthYear)"
-                heightLabel.text = "Height: \(people.height)"
-                genderLabel.text = "Gender: \(people.gender)"
-            }
+        switch character {
+        case .species(let species):
+            nameLabel.text = "Name: \(species.name)"
+            birthYearLabel.text = "Classification: \(species.classification)"
+            heightLabel.text = "Height: \(species.averageHeight)"
+            genderLabel.text = "Average Lifespan: \(species.averageLifespan)"
+            
+        case .person(let people):
+            nameLabel.text = "Name: \(people.name)"
+            birthYearLabel.text = "Birth year: \(people.birthYear)"
+            heightLabel.text = "Height: \(people.height)"
+            genderLabel.text = "Gender: \(people.gender)"
+        }
         layoutIfNeeded()
     }
-
+    
 }
+
+final class TypeACell: CharactersTableViewCell { }
+final class TypeBCell: CharactersTableViewCell { }
