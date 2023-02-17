@@ -42,13 +42,7 @@ class FilmsListViewController: UIViewController {
             self.tableView.reloadData()
         }).disposed(by: disposeBag)
         
-        //TODO: show error
-        viewModel.error.drive(onNext: { error in
-            print("Error occurred: \(String(describing: error))")
-        }).disposed(by: disposeBag)
-        
-        
-        viewModel._films.asObservable().bind(to: tableView
+        viewModel.films.asObservable().bind(to: tableView
             .rx
             .items(cellIdentifier: FilmTableViewCell.identifier, cellType: FilmTableViewCell.self)) {
                 (row, element, cell) in
