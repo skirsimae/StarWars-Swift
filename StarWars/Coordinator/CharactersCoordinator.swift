@@ -11,10 +11,10 @@ import RxSwift
 class CharactersCoordinator: Coordinator {
     var navigationController = UINavigationController()
     var networkingService: StarWarsService = StarWarsService.shared
-    var currentController: CharactersViewController?
+    var currentController: CharactersListViewController?
     
     init() {
-        currentController = CharactersViewController(viewModel: CharactersViewModel(service: networkingService))
+        currentController = CharactersListViewController(viewModel: CharactersViewModel(service: networkingService))
     }
     
     func start() {

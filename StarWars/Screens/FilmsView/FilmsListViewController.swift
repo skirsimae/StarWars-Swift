@@ -31,26 +31,33 @@ class FilmsListViewController: UIViewController {
         
         title = "Films"
         
-        configureTableViewCell()
         configureTableView()
+        bindDataSource()
         handleTableViewCellSelection()
         handleShowingError()
     }
     
-    private func configureTableViewCell() {
-        viewModel.films.drive(onNext: { [unowned self] _ in
-            self.tableView.reloadData()
-        }).disposed(by: disposeBag)
+    private func configureTableView() {
+        tableView.tableFooterView = UIView()
+        tableView.rowHeight = UITableView.automaticDimension
         
-        viewModel.films.asObservable().bind(to: tableView
-            .rx
-            .items(cellIdentifier: FilmTableViewCell.identifier, cellType: FilmTableViewCell.self)) {
-                (row, element, cell) in
-                if let viewModel = self.viewModel.viewModelForFilm(at: row) {
-                    cell.configureWith(viewModel)
+        tableView.register(FilmTableViewCell.nib, forCellReuseIdentifier: FilmTableViewCell.identifier)
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 100
+    }
+    
+    private func bindDataSource() {
+    viewModel.films
+            .asObservable()
+            .bind(to: tableView
+                .rx
+                .items(cellIdentifier: FilmTableViewCell.identifier, cellType: FilmTableViewCell.self)) {
+                    (row, element, cell) in
+                    if let viewModel = self.viewModel.viewModelForFilm(at: row) {
+                        cell.configureWith(viewModel)
+                    }
                 }
-            }
-            .disposed(by: disposeBag)
+                .disposed(by: disposeBag)
     }
     
     private func handleTableViewCellSelection() {
@@ -69,15 +76,6 @@ class FilmsListViewController: UIViewController {
             self.errorLabel.text = error
         })
         .disposed(by: disposeBag)
-    }
-    
-    private func configureTableView() {
-        tableView.tableFooterView = UIView()
-        tableView.rowHeight = UITableView.automaticDimension
-        
-        tableView.register(FilmTableViewCell.nib, forCellReuseIdentifier: FilmTableViewCell.identifier)
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 100
     }
     
     func showFilm(film: Film) {

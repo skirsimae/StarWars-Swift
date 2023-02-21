@@ -1,5 +1,5 @@
 //
-//  CharactersViewController.swift
+//  CharactersListViewController.swift
 //  StarWars
 //
 //  Created by Silva Kirsimae on 10/02/2023.
@@ -9,11 +9,11 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-class CharactersViewController: UIViewController {
+class CharactersListViewController: UIViewController {
     
     @IBOutlet weak var charactersSegmentedControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
-
+    
     var viewModel: CharactersViewModel
     let disposeBag = DisposeBag()
     
@@ -37,10 +37,19 @@ class CharactersViewController: UIViewController {
         handleError()
     }
     
+    private func configureTableView() {
+        tableView.tableFooterView = UIView()
+        tableView.rowHeight = UITableView.automaticDimension
+        
+        tableView.register(CharacterTableViewCell.nib, forCellReuseIdentifier: CharacterTableViewCell.identifier)
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 100
+    }
+    
     private func bindDataSource() {
         let dataSource = RxTableViewSectionedAnimatedDataSource<CharacterModel> (
             configureCell: { dataSource, tableView, indexPath, item in
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: CharactersTableViewCell.identifier, for: indexPath) as? CharactersTableViewCell else { fatalError() }
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: CharacterTableViewCell.identifier, for: indexPath) as? CharacterTableViewCell else { fatalError() }
                 cell.configureWith(item)
                 return cell
             })
@@ -56,7 +65,7 @@ class CharactersViewController: UIViewController {
             self.tableView.reloadData()
         })
         .disposed(by: disposeBag)
-
+        
         charactersSegmentedControl.rx
             .controlEvent(.valueChanged)
             .asObservable()
@@ -72,15 +81,6 @@ class CharactersViewController: UIViewController {
         viewModel._selectedCharacterType.asObservable().subscribe { [unowned self] character in
             self.viewModel.fetchCharacters()
         }.disposed(by: disposeBag)
-    }
-    
-    private func configureTableView() {
-        tableView.tableFooterView = UIView()
-        tableView.rowHeight = UITableView.automaticDimension
-        
-        tableView.register(CharactersTableViewCell.nib, forCellReuseIdentifier: CharactersTableViewCell.identifier)
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 100
     }
     
     private func handleError() {

@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CharactersViewController" customModule="StarWars" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CharactersListViewController" customModule="StarWars" customModuleProvider="target">
             <connections>
                 <outlet property="charactersSegmentedControl" destination="lgt-Mr-olR" id="Hmq-yr-eW7"/>
-                <outlet property="tableView" destination="2Pa-UQ-uL8" id="sOm-Ax-y1T"/>
+                <outlet property="tableView" destination="2Pa-UQ-uL8" id="2UM-E2-xzZ"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Q29-1l-O7L"/>
             </connections>
         </placeholder>

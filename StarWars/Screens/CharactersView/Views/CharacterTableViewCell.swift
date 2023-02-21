@@ -1,5 +1,5 @@
 //
-//  CharactersTableViewCell.swift
+//  CharacterTableViewCell.swift
 //  StarWars
 //
 //  Created by Silva Kirsimae on 12/02/2023.
@@ -8,7 +8,7 @@
 import UIKit
 import RxSwift
 
-class CharactersTableViewCell: UITableViewCell {
+class CharacterTableViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var birthYearLabel: UILabel!
@@ -28,7 +28,6 @@ class CharactersTableViewCell: UITableViewCell {
         disposeBag = DisposeBag()
     }
     
-    //Todo: unsubscribe to the cell for reuse purpose
     func configureWith(_ character: Character) {
         switch character {
         case .species(let species):
@@ -48,5 +47,5 @@ class CharactersTableViewCell: UITableViewCell {
     
 }
 
-final class TypeACell: CharactersTableViewCell { }
-final class TypeBCell: CharactersTableViewCell { }
+final class TypeACell: CharacterTableViewCell { }
+final class TypeBCell: CharacterTableViewCell { }
