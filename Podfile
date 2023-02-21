@@ -10,6 +10,6 @@ target 'StarWars' do
 
   pod 'RxSwift'
   pod 'RxCocoa'
-  pod 'RxDataSources'
+  pod 'RxDataSources', '~> 5.0'
 
 end
