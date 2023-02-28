@@ -9,16 +9,25 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="4GI-sv-0vC" customClass="CharactersTableViewCell" customModule="StarWars" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="218" id="4GI-sv-0vC" customClass="CharactersTableViewCell" customModule="StarWars" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="479" height="218"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4GI-sv-0vC" id="2Dc-ab-ZgB">
-                <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                <rect key="frame" x="0.0" y="0.0" width="479" height="218"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Characters" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oir-Rf-nH4">
+                        <rect key="frame" x="16" y="0.0" width="463" height="109"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Vn0-QQ-U6r" customClass="CharactersCoillect">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                        <rect key="frame" x="0.0" y="127" width="479" height="80"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="80" id="xUQ-VB-Epl"/>
+                        </constraints>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="P3f-Nr-L4b">
                             <size key="itemSize" width="128" height="128"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -28,16 +37,19 @@
                     </collectionView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="Vn0-QQ-U6r" secondAttribute="bottom" id="1in-BE-OFk"/>
+                    <constraint firstItem="oir-Rf-nH4" firstAttribute="top" secondItem="2Dc-ab-ZgB" secondAttribute="top" id="Cog-zs-YIx"/>
                     <constraint firstAttribute="trailing" secondItem="Vn0-QQ-U6r" secondAttribute="trailing" id="HaV-fQ-MbM"/>
+                    <constraint firstItem="Vn0-QQ-U6r" firstAttribute="top" secondItem="oir-Rf-nH4" secondAttribute="bottom" constant="18" id="KFJ-Ay-zKT"/>
                     <constraint firstItem="Vn0-QQ-U6r" firstAttribute="leading" secondItem="2Dc-ab-ZgB" secondAttribute="leading" id="Oxm-AY-Bg1"/>
-                    <constraint firstItem="Vn0-QQ-U6r" firstAttribute="top" secondItem="2Dc-ab-ZgB" secondAttribute="top" id="wVt-YF-Ulw"/>
+                    <constraint firstAttribute="trailing" secondItem="oir-Rf-nH4" secondAttribute="trailing" id="PXB-8V-gFC"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Vn0-QQ-U6r" secondAttribute="bottom" id="gku-eT-c8V"/>
+                    <constraint firstItem="oir-Rf-nH4" firstAttribute="leading" secondItem="2Dc-ab-ZgB" secondAttribute="leading" constant="16" id="whU-zg-yOo"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="collectionView" destination="Vn0-QQ-U6r" id="VQC-5r-YEe"/>
             </connections>
-            <point key="canvasLocation" x="24" y="-122"/>
+            <point key="canvasLocation" x="89.312977099236633" y="-61.267605633802823"/>
         </tableViewCell>
     </objects>
     <resources>

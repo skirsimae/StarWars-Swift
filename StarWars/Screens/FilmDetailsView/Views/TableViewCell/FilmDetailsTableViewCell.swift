@@ -25,5 +25,4 @@ class FilmDetailsTableViewCell: UITableViewCell {
     }
 
     func configure(with viewModel: FilmDetailsItemViewModel) {}
-
 }

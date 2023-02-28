@@ -28,32 +28,11 @@ class FilmDetailsViewModel: ViewModelType {
         }
     }
     
-    //TODO: Request people array
-    
-    private func refine(characters: [Person]) -> [FilmDetailsItemViewModel] {
-        return filmDetailsCellType.map { cellType -> FilmDetailsItemViewModel in
-            switch cellType {
-            case .descriptionHeader:
-                return FilmDetailsHeaderViewModel(film: film, type: cellType)
-            case .characters:
-                return CharactersTableViewCellViewModel(people: characters, type: cellType)
-            }
-        }
-    }
-    
     let _people = BehaviorRelay<[Person]>(value: [])
     let _error = BehaviorRelay<String?>(value: nil)
     
     var title: String {
         return film.title
-    }
-    
-    var episode: String {
-        return String(describing: film.episodeID)
-    }
-    
-    var openingCrawl: String {
-        return film.openingCrawl
     }
     
     var characters: Driver<[Person]> {
@@ -74,10 +53,20 @@ class FilmDetailsViewModel: ViewModelType {
             }
         }
     }
+    
+    private func refine(characters: [Person]) -> [FilmDetailsItemViewModel] {
+        return filmDetailsCellType.map { cellType -> FilmDetailsItemViewModel in
+            switch cellType {
+            case .descriptionHeader:
+                return FilmDetailsHeaderViewModel(film: film, type: cellType)
+            case .characters:
+                return CharactersTableViewCellViewModel(people: characters, type: cellType)
+            }
+        }
+    }
 }
 
 extension FilmDetailsViewModel: ReactiveConnectable {
-    
     struct Input {
         let onViewDidLoad = PublishSubject<Void>()
     }
@@ -87,27 +76,11 @@ extension FilmDetailsViewModel: ReactiveConnectable {
     }
     
     func transform(input: Input) -> Output {
-        
-        _ = input.onViewDidLoad
-            .do(onNext: { [weak self] in
-                guard let self = self else { return }
-                
-                for person in self.film.characters {
-                    self.fetchCharacters(customEndpoint: person)
-                }
-            })
-                
                 
         let filmDetailsItemViewModels = self.characters.asObservable().map { people in
             self.refine(characters: people)
         }
         
         return Output(filmDetailsItemViewModels: filmDetailsItemViewModels)
-    }
-}
-
-public extension Observable {
-    func asVoid() -> Observable<Void> {
-        return map { _ in }
     }
 }

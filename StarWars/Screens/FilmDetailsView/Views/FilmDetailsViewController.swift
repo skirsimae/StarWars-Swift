@@ -77,10 +77,6 @@ extension FilmDetailsViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? FilmDetailsTableViewCell else {
             return UITableViewCell()
         }
-        
-//        if let characterCell = cell as? CharactersTableViewCell {
-//            characterCell.configure(items: viewModel.displayableItems)
-//        }
 
         cell.configure(with: filmDetailsItemViewModel)
 
@@ -91,12 +87,7 @@ extension FilmDetailsViewController: UITableViewDataSource {
 extension FilmDetailsViewController: ViewModelBindable {
     typealias ViewModelType = FilmDetailsViewModel
     
-    func bind(viewModel input: FilmDetailsViewModel.Input) {
-        
-        rx.viewWillAppear
-            .bind(to: viewModel.input.onViewDidLoad)
-            .disposed(by: disposeBag)
-    }
+    func bind(viewModel input: FilmDetailsViewModel.Input) {}
     
     func bind(viewModel output: FilmDetailsViewModel.Output) {
         output.filmDetailsItemViewModels
@@ -104,7 +95,6 @@ extension FilmDetailsViewController: ViewModelBindable {
                 self?.filmDetailsItemViewModels = filmDetailsItemViewModels
             })
             .disposed(by: disposeBag)
-
     }
 }
 

@@ -34,7 +34,7 @@ class CharacterCollectionViewConfigurator: NSObject {
         collectionViewFlowLayout.sectionInset = .zero
         collectionViewFlowLayout.minimumLineSpacing = CGFloat(8)
         collectionViewFlowLayout.minimumInteritemSpacing = CGFloat(8)
-        collectionViewFlowLayout.itemSize = CGSize(width: 200, height: 200)
+        collectionViewFlowLayout.itemSize = CGSize(width: 200, height: 400)
         collectionViewFlowLayout.scrollDirection = .horizontal
     }
     
