@@ -8,14 +8,28 @@
 import RxSwift
 
 class StarWarsService: Networking {
+    
     static let shared = StarWarsService()
     private init () {}
     
     private let baseURL = "https://swapi.dev/api/"
     
-    func fetchData<T: Decodable>(from endpoint: Endpoint, resultHandler: @escaping (Result<T, Error>) -> Void) {
-        guard let urlComponents = URLComponents(string: "\(baseURL)\(endpoint.rawValue)") else {
-            resultHandler(.failure(MovieError.invalidEndpoint))
+    func fetchData<T: Decodable>(from endpoint: Endpoint? = nil, from customEndpoint: String? = nil, resultHandler: @escaping (Result<T, Error>) -> Void) {
+        var urlComponents: URLComponents
+        
+        if let endpoint = endpoint {
+            guard let components = URLComponents(string: "\(baseURL)\(endpoint.rawValue)") else {
+                resultHandler(.failure(MovieError.invalidEndpoint))
+                return
+            }
+            urlComponents = components
+        } else if let customEndpoint = customEndpoint {
+            guard let components = URLComponents(string: "\(customEndpoint)") else {
+                resultHandler(.failure(MovieError.invalidEndpoint))
+                return
+            }
+            urlComponents = components
+        } else {
             return
         }
         

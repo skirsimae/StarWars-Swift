@@ -37,7 +37,7 @@ struct CharactersViewModel {
     func fetchCharacters() {
         switch _selectedCharacterType.value {
         case .people:
-            service.fetchData(from: .people) { (result : (Result<PeopleResponse, Error>)) in
+            service.fetchData(from: .people, from: nil) { (result : (Result<PeopleResponse, Error>)) in
                 switch result {
                 case .success(let people):
                     self._characters.accept([CharacterModel(model: "", items: people.results.map({ person in
@@ -49,7 +49,7 @@ struct CharactersViewModel {
                 }
             }
         case .species:
-            service.fetchData(from: .species) { (result : (Result<SpeciesResponse, Error>)) in
+            service.fetchData(from: .species, from: nil) { (result : (Result<SpeciesResponse, Error>)) in
                 switch result {
                 case .success(let species):
                     self._characters.accept([CharacterModel(model: "", items: species.results.map({ species in

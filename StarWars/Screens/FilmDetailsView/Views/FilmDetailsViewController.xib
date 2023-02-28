@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FilmDetailsViewController" customModule="StarWars" customModuleProvider="target">
+            <connections>
+                <outlet property="tableView" destination="0o4-YI-wgd" id="eL6-Yy-vza"/>
+                <outlet property="view" destination="Xe3-GV-BOa" id="bXd-9K-JMi"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Xe3-GV-BOa">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DcC-Vi-P59">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="0o4-YI-wgd">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="0o4-YI-wgd" secondAttribute="bottom" id="8Uj-SF-aSA"/>
+                        <constraint firstAttribute="trailing" secondItem="0o4-YI-wgd" secondAttribute="trailing" id="XQ2-5w-LrV"/>
+                        <constraint firstItem="0o4-YI-wgd" firstAttribute="leading" secondItem="DcC-Vi-P59" secondAttribute="leading" id="eG4-1Y-PUW"/>
+                        <constraint firstItem="0o4-YI-wgd" firstAttribute="top" secondItem="DcC-Vi-P59" secondAttribute="top" id="uLL-ZX-AFl"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="DcC-Vi-P59" firstAttribute="leading" secondItem="Xe3-GV-BOa" secondAttribute="leading" id="8sa-DR-B16"/>
+                <constraint firstItem="DcC-Vi-P59" firstAttribute="top" secondItem="Xe3-GV-BOa" secondAttribute="top" id="LON-Hr-LqT"/>
+                <constraint firstAttribute="bottom" secondItem="DcC-Vi-P59" secondAttribute="bottom" id="d3C-Wa-kjc"/>
+                <constraint firstAttribute="trailing" secondItem="DcC-Vi-P59" secondAttribute="trailing" id="edn-Po-RZ6"/>
+            </constraints>
+            <point key="canvasLocation" x="-121" y="31"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

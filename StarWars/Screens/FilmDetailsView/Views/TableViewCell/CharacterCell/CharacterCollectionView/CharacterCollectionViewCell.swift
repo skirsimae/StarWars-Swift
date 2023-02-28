@@ -1,18 +1,18 @@
 //
-//  FilmTableViewCell.swift
+//  CharacterCollectionViewCell.swift
 //  StarWars
 //
-//  Created by Silva Kirsimae on 09/02/2023.
+//  Created by Silva Kirsimae on 27/02/2023.
 //
 
 import UIKit
 
-class FilmTableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var filmLabel: UILabel!
+class CharacterCollectionViewCell: UICollectionViewCell {
     
     class var identifier: String { return String(describing: self) }
     class var nib: UINib { return UINib(nibName: identifier, bundle: nil) }
+    
+    @IBOutlet weak var characterNameLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,12 +20,9 @@ class FilmTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        
-        filmLabel.text = nil
     }
     
-    func configureWith(_ viewModel: FilmTableViewCellViewModel) {
-        filmLabel.text = viewModel.title
+    func configure(with item: Person) {
+        self.characterNameLabel.text = item.name
     }
-    
 }

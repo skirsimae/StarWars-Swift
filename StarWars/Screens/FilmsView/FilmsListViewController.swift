@@ -47,7 +47,7 @@ class FilmsListViewController: UIViewController {
     }
     
     private func bindDataSource() {
-    viewModel.films
+        viewModel.films
             .asObservable()
             .bind(to: tableView
                 .rx
@@ -65,7 +65,7 @@ class FilmsListViewController: UIViewController {
             .modelSelected(Film.self)
             .asDriver()
             .drive(onNext: { [unowned self] film in
-                self.coordinator?.showFilm(film: film)
+                self.coordinator?.showFilmDetails(film: film)
             })
             .disposed(by: disposeBag)
     }
@@ -76,9 +76,5 @@ class FilmsListViewController: UIViewController {
             self.errorLabel.text = error
         })
         .disposed(by: disposeBag)
-    }
-    
-    func showFilm(film: Film) {
-        coordinator?.showFilm(film: film)
     }
 }

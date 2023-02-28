@@ -26,15 +26,15 @@ class FilmsCoordinator: Coordinator {
         }
     }
     
-    func showFilm(film: Film) {
-        let viewController = filmTableViewController(film: film)
+    func showFilmDetails(film: Film) {
+        let viewController = filmDetailsViewController(film: film)
         navigationController.pushViewController(viewController, animated: true)
     }
     
-    func filmTableViewController(film: Film) -> FilmDetailsTableViewController{
-        let filmDetailsTableViewController = FilmDetailsTableViewController(viewModel: FilmDetailsTableViewViewModel(film: film, endpoint: .just(.people), service: networkingService))
-        filmDetailsTableViewController.coordinator = self
+    func filmDetailsViewController(film: Film) -> FilmDetailsViewController {
+        let filmDetailsViewController = FilmDetailsViewController(viewModel: FilmDetailsViewModel(film: film, service: networkingService))
+//        filmDetailsViewController.coordinator = self
         
-        return filmDetailsTableViewController
+        return filmDetailsViewController
     }
 }

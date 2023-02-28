@@ -52,7 +52,7 @@ class FilmsListViewModel {
         self._films.accept([])
         self._error.accept(nil)
         
-        service.fetchData(from: endpoint) { (result : Result<FilmsResponse,Error>) in
+        service.fetchData(from: endpoint, from: nil) { (result : Result<FilmsResponse,Error>) in
             switch result {
             case .success(let films):
                 self._films.accept(films.results)

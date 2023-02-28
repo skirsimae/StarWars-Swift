@@ -8,7 +8,7 @@
 import RxSwift
 
 protocol Networking {
-    func fetchData<T: Decodable>(from endpoint: Endpoint, resultHandler: @escaping (Result<T, Error>) -> Void)
+    func fetchData<T: Decodable>(from endpoint: Endpoint?, from customEndPoint: String?, resultHandler: @escaping (Result<T, Error>) -> Void)
 }
 
 
